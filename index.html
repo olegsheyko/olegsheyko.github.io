@@ -3,51 +3,530 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Олег Шейко</title>
+  <title>Oleg Sheyko — GameDev Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    body {
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+    * {
       margin: 0;
       padding: 0;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
-      background-size: 400% 400%;
-      animation: gradientBG 15s ease infinite;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #111827, #4c1d95, #7e22ce);
       color: white;
-      font-family: 'Segoe UI', system-ui, sans-serif;
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 50;
+      background: rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(192, 132, 252, 0.2);
+      padding: 1rem 0;
+    }
+
+    .nav-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      background: linear-gradient(to right, #c084fc, #f472b6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .nav-links {
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+      }
+      .nav-links a {
+        transition: color 0.3s;
+      }
+      .nav-links a:hover {
+        color: #c084fc;
+      }
+    }
+
+    /* Hero Section */
+    .hero {
+      padding-top: 12rem;
+      padding-bottom: 5rem;
       text-align: center;
     }
 
-    @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+    .avatar {
+      width: 8rem;
+      height: 8rem;
+      margin: 0 auto 1.5rem;
+      border-radius: 50%;
+      background: linear-gradient(to right, #7e22ce, #ec4899);
+      padding: 0.25rem;
     }
 
-    h1 {
-      font-size: 3.5rem;
-      margin: 0;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    .avatar-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: #111827;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      color: #c084fc;
     }
 
-    p {
-      font-size: 1.4rem;
-      margin-top: 1rem;
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(to right, white, #e9d5ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    @media (min-width: 768px) {
+      .hero h1 {
+        font-size: 4rem;
+      }
+    }
+
+    .hero p {
+      font-size: 1.125rem;
+      color: #d1d5db;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 2rem;
+      border-radius: 0.75rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(to right, #7e22ce, #ec4899);
+    }
+
+    .btn-primary:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(126, 34, 206, 0.4);
+    }
+
+    .btn-outline {
+      border: 2px solid #a78bfa;
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      background: rgba(167, 139, 250, 0.1);
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    @media (min-width: 640px) {
+      .hero-buttons {
+        flex-direction: row;
+      }
+    }
+
+    /* Section styling */
+    section {
+      padding: 5rem 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .section-title h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      background: linear-gradient(to right, #c084fc, #f472b6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .section-title p {
+      color: #d1d5db;
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1.125rem;
+    }
+
+    /* Projects */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    @media (min-width: 1024px) {
+      .projects-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .project-card {
+      background: rgba(31, 41, 55, 0.5);
+      border: 1px solid rgba(192, 132, 252, 0.3);
+      border-radius: 1rem;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(192, 132, 252, 0.6);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .project-image {
+      position: relative;
+      height: 12rem;
+      overflow: hidden;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .project-card:hover .project-image img {
+      transform: scale(1.05);
+    }
+
+    .project-year {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(126, 34, 206, 0.8);
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+
+    .project-content {
+      padding: 1.5rem;
+    }
+
+    .project-content h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .project-content p {
+      font-size: 0.875rem;
+      color: #9ca3af;
+      margin-bottom: 1rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .tag {
+      background: rgba(126, 34, 206, 0.3);
+      color: #d8b4fe;
+      padding: 0.25rem 0.5rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+    }
+
+    .project-link {
+      display: block;
+      text-align: center;
+      padding: 0.5rem;
+      background: linear-gradient(to right, #7e22ce, #ec4899);
+      border-radius: 0.5rem;
+      font-weight: 600;
+      transition: opacity 0.3s;
+    }
+
+    .project-link:hover {
       opacity: 0.9;
     }
 
-    @media (max-width: 600px) {
-      h1 { font-size: 2.5rem; }
-      p { font-size: 1.1rem; }
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .skills-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .skill-card {
+      background: rgba(31, 41, 55, 0.5);
+      border: 1px solid rgba(192, 132, 252, 0.3);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .skill-card:hover {
+      border-color: rgba(192, 132, 252, 0.6);
+      background: rgba(31, 41, 55, 0.7);
+    }
+
+    .skill-icon {
+      font-size: 1.5rem;
+      color: #c084fc;
+      margin-bottom: 1rem;
+    }
+
+    .skill-name {
+      font-weight: 600;
+      font-size: 1.125rem;
+    }
+
+    /* Contact */
+    .contact-section {
+      background: rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    /* Footer */
+    footer {
+      padding: 2rem 0;
+      border-top: 1px solid rgba(192, 132, 252, 0.2);
+      text-align: center;
+      color: #9ca3af;
     }
   </style>
 </head>
 <body>
-  <h1>Олег Шейко</h1>
-  <p>Первая версия сайта</p>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="container nav-content">
+      <div class="logo">Oleg Sheyko</div>
+      <div class="nav-links">
+        <a href="#projects">Проекты</a>
+        <a href="#skills">Навыки</a>
+        <a href="#contact">Контакты</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="avatar">
+        <div class="avatar-inner">
+          <i class="fas fa-gamepad"></i>
+        </div>
+      </div>
+      <h1>Oleg Sheyko GameDev</h1>
+      <p>Создаю не просто игры, а захватывающий игровой опыт. Работаю с Unreal Engine с 2017 года. Учусь, экспериментирую, расту – и делаю это с удовольствием.</p>
+      <div class="hero-buttons">
+        <a href="https://t.me/your_telegram" target="_blank" class="btn btn-primary">
+          <i class="fab fa-telegram"></i> Связаться в Telegram
+        </a>
+        <a href="#projects" class="btn btn-outline">Мои Проекты</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-title">
+        <h2>Мои Проекты</h2>
+        <p>Исследуйте мои работы, созданные с душой и техническим мастерством</p>
+      </div>
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="https://placehold.co/600x400/1a1a2e/ffffff?text=On+The+Verge+II" alt="On The Verge II">
+            <div class="project-year">2020</div>
+          </div>
+          <div class="project-content">
+            <h3>On The Verge II</h3>
+            <p>Похищенный парень пытается выбраться из логова маньяка-психопата, который, желая превратить его в генно-модифицированного монстра, уготовал ему смертельные испытания.</p>
+            <div class="tags">
+              <span class="tag">Survival Horror</span>
+              <span class="tag">UE5</span>
+              <span class="tag">Narrative</span>
+              <span class="tag">Puzzle</span>
+            </div>
+            <a href="https://store.steampowered.com/app/1106710/On_The_Verge_II/" target="_blank" class="project-link">
+              <i class="fas fa-external-link-alt"></i> Посмотреть проект
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="https://img.itch.zone/aW1nLzE5NDUwMDI2LnBuZw==/original/tKzy9H.png" alt="Oleg Drive 3">
+            <div class="project-year">2024</div>
+          </div>
+          <div class="project-content">
+            <h3>Oleg Drive 3</h3>
+            <p>Студент возвращается в прошлое, чтобы спасти подругу от преступлений банды газелистов. Экшн с чёрным юмором, ночными погонями и личной местью… в главной роли – я сам.</p>
+            <div class="tags">
+              <span class="tag">Action</span>
+              <span class="tag">Time Travel</span>
+              <span class="tag">Open World</span>
+              <span class="tag">Crime Thriller</span>
+            </div>
+            <a href="https://olegsheyko.itch.io/oleg-drive-3" target="_blank" class="project-link">
+              <i class="fas fa-external-link-alt"></i> Посмотреть проект
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="https://placehold.co/600x400/0f3460/ffffff?text=Zombutcher" alt="Zombutcher">
+            <div class="project-year">2026</div>
+          </div>
+          <div class="project-content">
+            <h3>Zombutcher</h3>
+            <p>Иммерсивный симулятор мясника-зомби, ведущего двойную жизнь в надежде заработать на лекарство.</p>
+            <div class="tags">
+              <span class="tag">Simulation</span>
+              <span class="tag">Horror Comedy</span>
+              <span class="tag">Business</span>
+              <span class="tag">Immersive</span>
+            </div>
+            <a href="https://store.steampowered.com/app/4039900/ZOMBUTCHER_Monster_Business_Simulator/" target="_blank" class="project-link">
+              <i class="fas fa-external-link-alt"></i> Посмотреть проект
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="skills-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Технологический Стек</h2>
+        <p>Я пишу код так, чтобы он работал быстро, масштабировался легко и радовал глаз коллегам. Мои ключевые компетенции:</p>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fas fa-code"></i></div>
+          <div class="skill-name">Unreal Engine 5 C++</div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fas fa-palette"></i></div>
+          <div class="skill-name">Blueprint Visual Scripting</div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fas fa-project-diagram"></i></div>
+          <div class="skill-name">Game Architecture</div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fas fa-tachometer-alt"></i></div>
+          <div class="skill-name">Performance Optimization</div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fas fa-images"></i></div>
+          <div class="skill-name">3D/2D Art Integration</div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fas fa-gamepad"></i></div>
+          <div class="skill-name">Gameplay Multi-Usability</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Давайте работать вместе!</h2>
+        <p>Открыт к коллаборациям, геймджемам, менторству и обмену идеями.</p>
+      </div>
+      <div class="contact-buttons">
+        <a href="https://t.me/your_telegram" target="_blank" class="btn btn-primary">
+          <i class="fas fa-envelope"></i> Написать мне
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Oleg Sheyko. Все права защищены.</p>
+      <p>Создаю игры с 2017 года • Unreal Engine Developer</p>
+    </div>
+  </footer>
+
 </body>
 </html>
 
