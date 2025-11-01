@@ -91,18 +91,16 @@
       border-radius: 50%;
       background: linear-gradient(to right, #7e22ce, #ec4899);
       padding: 0.25rem;
-    }
-
-    .avatar-inner {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      background: #111827;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 2.5rem;
-      color: #c084fc;
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
     }
 
     .hero h1 {
@@ -379,9 +377,7 @@
   <section class="hero">
     <div class="container">
       <div class="avatar">
-        <div class="avatar-inner">
-          <i class="fas fa-gamepad"></i>
-        </div>
+        <img src="avatar.jpg" alt="Oleg Sheyko">
       </div>
       <h1>Oleg Sheyko | Unreal Engine 5 Developer</h1>
       <p>Создаю не просто игры, а захватывающий игровой опыт. Работаю с Unreal Engine с 2017 года. Учусь, экспериментирую, расту – и делаю это с удовольствием.</p>
@@ -405,7 +401,7 @@
         <!-- Project 1 -->
         <div class="project-card">
           <div class="project-image">
-            <img src="https://placehold.co/600x400/1a1a2e/ffffff?text=On+The+Verge+II" alt="On The Verge II">
+            <img src="on-the-verge-ii.jpg" alt="On The Verge II">
             <div class="project-year">2020</div>
           </div>
           <div class="project-content">
@@ -447,7 +443,7 @@
         <!-- Project 3 -->
         <div class="project-card">
           <div class="project-image">
-            <img src="https://placehold.co/600x400/0f3460/ffffff?text=Zombutcher" alt="Zombutcher">
+            <img src="zombutcher.jpg" alt="Zombutcher">
             <div class="project-year">2026</div>
           </div>
           <div class="project-content">
@@ -529,4 +525,3 @@
 
 </body>
 </html>
-
