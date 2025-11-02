@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Oleg Sheyko — GameDev Portfolio</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
@@ -17,9 +18,23 @@
     body {
       font-family: 'Inter', sans-serif;
       background: linear-gradient(135deg, #111827, #4c1d95, #7e22ce);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
       color: white;
       min-height: 100vh;
       line-height: 1.6;
+    }
+
+    @keyframes gradientShift {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
     }
 
     a {
@@ -79,8 +94,8 @@
 
     /* Hero Section */
     .hero {
-      padding-top: 12rem;
-      padding-bottom: 5rem;
+      padding-top: 8rem;
+      padding-bottom: 3rem;
       text-align: center;
     }
 
@@ -184,7 +199,7 @@
 
     /* Section styling */
     section {
-      padding: 5rem 0;
+      padding: 3rem 0;
     }
 
     .section-title {
@@ -394,7 +409,7 @@
         <img src="avatar.jpg" alt="Oleg Sheyko">
       </div>
       <h1>Oleg Sheyko | Unreal Engine 5 Developer</h1>
-      <p>Создаю не просто игры, а захватывающий игровой опыт. Работаю с Unreal Engine с 2017 года. Учусь, экспериментирую, расту – и делаю это с удовольствием.</p>
+      <p>Создаю не просто игры, а захватывающий игровой опыт. Работаю с Unreal Engine с 2017 года. Учусь, экспериментирую, расту – и делаю это с удовольствием!</p>
       <div class="hero-buttons">
         <a href="https://t.me/ole_sh_kaa" target="_blank" class="btn btn-primary">
           <i class="fab fa-telegram"></i> Связаться в Telegram
@@ -483,7 +498,7 @@
     <div class="container">
       <div class="section-title">
         <h2>Технологический стек</h2>
-        <p>Я пишу код так, чтобы он работал быстро, масштабировался легко и радовал глаз коллегам. Мои ключевые компетенции:</p>
+        <p>Я пишу код так, чтобы он работал быстро, легко масштабировался и радовал глаз коллегам. Мои ключевые компетенции:</p>
       </div>
       <div class="skills-grid">
         <div class="skill-card">
@@ -523,7 +538,7 @@
       </div>
       <div class="contact-buttons">
         <a href="https://t.me/ole_sh_kaa" target="_blank" class="btn btn-primary">
-          <i class="fas fa-envelope"></i> Написать мне
+          <i class="fab fa-telegram"></i> Связаться в Telegram
         </a>
       </div>
     </div>
